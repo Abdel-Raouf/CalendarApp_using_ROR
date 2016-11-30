@@ -1,4 +1,4 @@
-var searchForm = React.createClass({
+var SearchForm = React.createClass({
   handleSearch: function(){
     var query = ReactDOM.findDOMNode(this.refs.query).value;
     var self = this;

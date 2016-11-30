@@ -10,5 +10,16 @@ module Api
 
       render json: events
     end
+    def create
+      events = Event.new(event_params)
+      if event.save
+        render json:event
+      else
+        render nothing:tru, status: :bad_request
+      end
+    end
+    def event_params
+      params.require(:event).permit(:name, :description, :event_date, :place)
+    end
   end
 end
