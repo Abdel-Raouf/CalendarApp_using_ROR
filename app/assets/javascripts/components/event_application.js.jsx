@@ -1,13 +1,13 @@
 var EventApplication = React.createClass ({
   getInitialState: function(){
-    return { events: []};
+    return { events: [] };
   },
   componentDidMount: function(){
     this.getDataFromApi();
   },
   getDataFromApi: function(){
     var self = this;
-    $ajax({
+    $.ajax({
       url: '/api/events',
       success: function(data){
         self.setState({ events: data });
