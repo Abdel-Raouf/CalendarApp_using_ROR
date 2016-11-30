@@ -17,6 +17,12 @@ var EventApplication = React.createClass ({
       }
     });
   },
+  handleDeleteRecord:function(event){
+    var events = this.state.events.slice();
+    var index = events.indexOf(event);
+    events.splice(index, 1);
+    this.setState({ events: events });
+  },
   handleSearch: function(events){
     this.setState({ events: events });
   },
@@ -43,7 +49,8 @@ var EventApplication = React.createClass ({
         </div>
         <div className="row">
           <div className="col-md-12">
-            <EventTable events={this.state.events} />
+            <EventTable events={this.state.events}
+                        handleDeleteRecord={this.handleDeleteRecord}/>
           </div>
         </div>
       </div>

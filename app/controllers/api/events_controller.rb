@@ -1,5 +1,13 @@
 module Api
   class EventsController < ApplicationController
+    before_action :set_event, only: [:destroy]
+    def destroy
+      @event.destroy
+      head :no_content
+    end
+    def set_event
+      @event = Event.find(params[:id])
+    end
     def index
       render json: Event.all
     end
